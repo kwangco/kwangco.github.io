@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta description="Homework 2 for JavaScript, jQuery, AJAX course at CCSF">
+    <title>JavaScript - Homework 2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('form').on('submit', function(e) {
+                e.preventDefault();
+                $("#sum-result").fadeTo("fast", 1);
+                if ($('#num1').val() === '' || $('#num2').val() === '' || $('#num3').val() === '') {
+                    $('#sum-result').text('Error: Some input fields are empty. Please enter all three numbers.');
+                    return;
+                }
+                var n1 = parseFloat($('#num1').val()) || 0;
+                var n2 = parseFloat($('#num2').val()) || 0;
+                var n3 = parseFloat($('#num3').val()) || 0;
+                var sum = n1 + n2 + n3;
+                var avg = sum / 3;
+                var product = n1 * n2 * n3;
+                var smallest = Math.min(n1, n2, n3);
+                var largest = Math.max(n1, n2, n3);
+                $('#sum-result').text('Sum: ' + sum + ', Average: ' + avg.toFixed(2) + ', Product: ' + product + ', Smallest: ' + smallest + ', Largest: ' + largest);
+            });
+            $('#clear').on('click', function() {
+                $('#sum-result').text('');
+            });
+            $('#fade').on('click', function() {
+                $("#sum-result").fadeTo("slow", 0.5);
+            });            
+        });
+        </script>
+</head>
+<body>
+    <h1>CNIT 133 Homework 2 - Basic Operations</h1>
+    <p>
+    <a href="#part1">Go to Part 1</a>
+    <a href="#part2">Go to Part 2</a>
+    </p>
+
+    <div id="part1">
+    <h2>Part 1 - Displaying strings with document.write()</h2>
+    <p>
+    <script>
+    document.write('<span style="font-family: \'Times New Roman\'; color: red; font-weight: bold;">xy </span>');
+    document.write('<span style="font-family: \'Arial\'; color: blue;">12 </span>');
+    document.write('<span style="font-family: \'Impact\'; color: green; font-style: italic;">89</span>');    
+    </script>
+    </p>
+    </div>
+
+    <div id="part2">
+    <h2>Part 2 - Form</h2>
+    <h3>Enter 3 numbers</h3>
+    <p>
+    <form>
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" name="num1"><br><br>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" name="num2"><br><br>
+        <label for="num3">Number 3:</label>
+        <input type="number" id="num3" name="num3"><br><br>
+        <input type="submit" value="Submit">
+        <input type="button" value="Clear" id="clear" onclick="this.form.reset();">
+        <br><br>
+        <input type="button" value="Fade" id="fade">
+    </form>
+    <div id="sum-result" style="margin-top:1em; font-weight:bold; text-align:center;"></div>
+    </p>
+    </div>
+    <p>
+    <a href="./index.html">Back to main page</a>
+    </p>
+</body>
+</html>
