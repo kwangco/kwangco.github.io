@@ -23,9 +23,50 @@ table {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  margin-top:1em;
+  font-weight:bold;
 }
 
 #salesTable td:nth-child(3) input,
 #salesTable td:nth-child(4) input {
   text-align: right;
 }
+
+#draggable { 
+  text-align: center;
+  width: 150px;
+  height: 150px; 
+  padding: 0.5em; 
+  background: #c6ddff;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  display: flex;               
+  justify-content: center;   
+  align-items: center;   
+}
+
+.div-results { 
+ margin-top:2em; 
+ font-weight:bold; 
+ text-align:center;
+}
+
+th {
+  background-color: #007acc;
+  color: white;
+  padding: 8px;
+}
+
+td {
+  padding: 4px;
+}
+
+.rates-results tr:nth-child(even) {
+  background-color: hsl(61, 100%, 86%);
+}
+
+.rates-results tr:nth-child(odd) {
+  background-color: #d1dff3;
+}
+
